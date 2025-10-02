@@ -1,6 +1,6 @@
 
-import styles from './css/TitleBox.module.css';
 
+import styles from './css/TitleBox.module.css';
 function TitleBox() {
     const container = {
         display: "flex",
@@ -8,8 +8,9 @@ function TitleBox() {
         justify_content: `start`
     }
     return (
-        <div className="TitleBox">
-            <p className="d">투 두 리 수 두 </p>
+        <div className={styles.container}>
+            <p className={styles.title}>&nbsp;투두&nbsp;리수투&nbsp;</p>
+            
         </div>
     );
 }

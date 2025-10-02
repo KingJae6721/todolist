@@ -1,4 +1,17 @@
-#root {
+.root {
+  flex-direction: column;
+  width: 600px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  /* 자식 요소 가로 중앙 정렬 */
+}
+
+
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +52,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */

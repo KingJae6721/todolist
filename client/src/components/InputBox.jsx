@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from './css/InputBox.module.css';
 
 function InputBox({ onAdd }) {
     const [inputText, setInputText] = useState('');
@@ -10,12 +11,13 @@ function InputBox({ onAdd }) {
         }
 
     }
-    const [todoList, setTodoList] = useState('')
+     
     return (
         <>
-            <div>
+            <div className={styles.container}>
                 <input
                     type="text"
+                     
                     placeholder='여따 할일 작성하쇼'
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
