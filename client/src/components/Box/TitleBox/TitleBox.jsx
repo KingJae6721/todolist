@@ -1,6 +1,6 @@
 
 
-import styles from './css/TitleBox.module.css';
+import styles from './TitleBox.module.css';
 function TitleBox() {
     const container = {
         display: "flex",
@@ -9,8 +9,7 @@ function TitleBox() {
     }
     return (
         <div className={styles.container}>
-            <p className={styles.title}>&nbsp;투두&nbsp;리수투&nbsp;</p>
-            
+            <p className={styles.title}>To Do List&nbsp;</p>
         </div>
     );
 }

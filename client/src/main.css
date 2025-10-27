@@ -1,14 +1,23 @@
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  margin: 0;
+  padding: 0;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* 7열.브라우저가 굵은 글씨(bold)나 기울임(italic) 스타일을 인위적으로 만들어내지 않도록 함.
 8열. 텍스트를 화면에 좀 더 읽기 쉽게 렌더링하라는 브라우저에게 주는 힌트.
 9열. (크롬, 사파리 등 Webkit 브라우저 전용) 폰트의 경계선을 부드럽게(안티앨리어싱) 처리해서 더 선명하고 깔끔하게 보이게 함.
@@ -19,11 +28,15 @@
   :root {
     color: #213547;
     background-color: #ffffff;
+    margin: 0;
+    padding: 0;
   }
-  a:hover {
+
+  .a:hover {
     color: #747bff;
   }
-  button {
+
+  .button {
     background-color: #f9f9f9;
     font-style: #111;
   }

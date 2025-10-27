@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:12.0
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: TodoList
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./dbdata:/var/lib/mysql
+
+  server:
+    build: ./server
+    container_name: todolist-server
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mariadb
+    environment:
+      DB_HOST: mariadb
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: TodoList
+    volumes:
+      - ./server:/app
+    working_dir: /app
+    command: node server.js
+
+volumes:
+  dbdata:

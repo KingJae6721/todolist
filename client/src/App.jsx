@@ -2,57 +2,35 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import './App.css';
-import TitleBox from './components/TitleBox'
-import InputBox from './components/InputBox'
-import Card from './components/Card'
+
+import TodoList from './pages/todolist/Todolist'
+import Login from './pages/login/Login'
+import UserRegister from './pages/register/UserRegister'
+
 
 function App() {
-  const [todoList, setTodoList] = useState([])
-  useEffect(() => {
-    console.log('Fetching todos from:', window.location.origin + '/api/todos');
-    fetch('/api/todos')
-      .then(res => res.json())
-      .then(data => setTodoList(data))
-      .catch(err => console.error('Failed to fetch todos:', err));
-  }, []);
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <TodoList />,
+      children: []
 
-  // 새로운 할 일 추가
-  const handleAdd = (taskValue) => {
-    const newTodo = {
-      task: taskValue,
-      completed: false,         // 기본값
-      category: "기본",         // 선택값 또는 드롭다운에서 선택
-      notes: ""                 // 메모 입력값
-    };
+    },
+    {
+      path: '/login',
+      element: <Login />,
+      children: []
 
-    fetch('/api/todos', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newTodo)
-    })
-      .then(res => res.json())
-      .then(() => {
-        // ✅ POST 성공 후 DB에서 전체 리스트 다시 가져오기
-        return fetch('/api/todos');
-      })
-      .then(res => res.json())
-      .then(freshList => {
-        setTodoList(freshList);
-      })
+    },
+    {
+      path: '/register',
+      element: <UserRegister />,
+      children: []
 
-      .catch(err => console.error('Failed to add todo:', err));
-  };
+    },
+  ]);
   return (
-    <>
-      <div className="root">
-        <TitleBox />
-        <InputBox onAdd={handleAdd} />
-
-        <Card item={todoList} />
-      </div>
-
-    </>
-
+    <RouterProvider router={router} />
   )
 }
 

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styles from './css/InputBox.module.css';
+import styles from './InputBox.module.css';
 
 function InputBox({ onAdd }) {
     const [inputText, setInputText] = useState('');
@@ -9,25 +9,26 @@ function InputBox({ onAdd }) {
             setInputText('')
             onAdd(inputText)
         }
-
     }
-     
+
     return (
         <>
             <div className={styles.container}>
-                <input
+                <input className={styles.input}
                     type="text"
-                     
+
                     placeholder='여따 할일 작성하쇼'
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     onKeyDown={(e) => {
-                        e.key=='Enter'?setList(inputText):0
-                        
+                        e.key == 'Enter' ? setList(inputText) : 0
+
                     }}
                 />
 
-                <button onClick={() => setList(inputText)}>확인</button>
+                <button className={styles.button} onClick={() => setList(inputText)}>
+                    확인
+                </button>
 
             </div>
         </>
