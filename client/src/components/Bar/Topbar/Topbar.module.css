@@ -1,0 +1,36 @@
+.nav {
+  width: 100%;                      /* 좌우 꽉 차게 */
+  background-color: #bdd8ec;
+  padding: 16px 24px;
+  width: 100vw;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+
+  box-sizing: border-box;           /* 패딩 포함한 너비 계산 */
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 16px;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.nav button {
+  width: 90px;
+  background-color: white;
+  color: #0078d4;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.nav button:hover {
+  background-color: #e6e6e6;
+}
